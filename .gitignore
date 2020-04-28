@@ -3,3 +3,4 @@ nohup.out
 .DS_Store
 package-lock.json
 .env
+dump.rdb

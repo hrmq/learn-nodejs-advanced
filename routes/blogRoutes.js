@@ -14,27 +14,8 @@ module.exports = (app) => {
   });
 
   app.get('/api/blogs', requireLogin, async (req, res) => {
-    const redis = require('redis');
-    const redisUrl = 'redis://localhost:6379';
-    const client = redis.createClient(redisUrl);
-
-    const util = require('util');
-    client.get = util.promisify(client.get);
-
-    const cachedBlogs = await client.get(req.user.id);
-
-    // if cached data before, respond to query right away and return
-    if (cachedBlogs) {
-      console.log('SERVING FROM CACHE');
-      return res.send(JSON.parse(cachedBlogs));
-    }
-
-    // respond to query and update our cache to store the data
     const blogs = await Blog.find({ _user: req.user.id });
-
-    console.log('SERVING FROM MONGODB');
     res.send(blogs);
-    client.set(req.user.id, JSON.stringify(blogs));
   });
 
   app.post('/api/blogs', requireLogin, async (req, res) => {
