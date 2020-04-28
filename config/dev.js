@@ -1,7 +1,7 @@
 module.exports = {
   googleClientID:
-    '964808011168-29vqsooppd769hk90kjbjm5gld0glssb.apps.googleusercontent.com',
-  googleClientSecret: 'KnH-rZC23z4fr2CN4ISK4srN',
+    '1096269823748-tmb0j0n9jdosjs6gekpvh3obvfb9uspb.apps.googleusercontent.com',
+  googleClientSecret: 'YMZb-KlN0OsAWzT5AwmssK8P',
   mongoURI: 'mongodb://localhost:27017/blog_everyone',
-  cookieKey: '123123123'
+  cookieKey: '123123123',
 };
