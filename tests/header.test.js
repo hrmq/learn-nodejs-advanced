@@ -12,7 +12,7 @@ afterEach(async () => {
 });
 
 test('We can launch a browser', async () => {
-  const text = await page.$eval('a.brand-logo', (el) => el.innerHTML);
+  const text = await page.getContentsOf('a.brand-logo');
   expect(text).toEqual('Blogster');
 });
 
@@ -22,7 +22,7 @@ test('Clicking login oauth flow', async () => {
   expect(url).toMatch(/accounts\.google\.com/);
 });
 
-test.only('When signed in shows logged out button', async () => {
+test('When signed in shows logged out button', async () => {
   await page.login();
   const text = await page.$eval('a[href="/auth/logout"', (el) => el.innerHTML);
   expect(text).toEqual('Logout');
