@@ -70,6 +70,6 @@ describe('When user is not logged in', async () => {
       }).then((res) => res.json());
     });
 
-    expect(result).toBe({ error: 'You must log in!' });
+    expect(result).toEqual({ error: 'You must log in!' });
   });
 });
